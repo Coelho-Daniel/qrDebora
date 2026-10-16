@@ -395,7 +395,7 @@
     <p>Usa as setas do teclado (⬅️ / ➡️) ou clica nas setas laterais para navegar. Toca na foto para ver em grande!</p>
   </footer>
 
- <script>
+<script>
     // Sequência exata de looks de acordo com as fotos enviadas:
     const looks = [
       {
@@ -451,7 +451,7 @@
       {
         src: "foto11.jpg",
         title: "Princesa dos Unicórnios",
-        icon: "custom-unicorn" // Identificador para o SVG personalizado
+        icon: "custom-unicorn" // Identificador para o SVG premium
       }
     ];
 
@@ -484,7 +484,7 @@
       });
     }
 
-    // Atualizar Slide (Lógica Corrigida para Ícones Mistos e Unicórnio Realista)
+    // Atualizar Slide (Com o SVG do Unicórnio Premium)
     function updateSlide() {
       const look = looks[currentIndex];
       
@@ -498,22 +498,22 @@
 
         // VERIFICAÇÃO DO ÍCONE: Trata o SVG personalizado vs Font Awesome
         if (look.icon === "custom-unicorn") {
-          lookIcon.className = "look-icon"; // Remove classes residuais do Font Awesome
+          lookIcon.className = "look-icon"; // Remove classes do Font Awesome
           
-          // Desenho vetorial de alta definição para o Unicórnio
+          // DESIGN PREMIUM EXTRA-LIMPO (Estilo Lucide / Font Awesome Pro)
           lookIcon.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;">
-              <!-- Chifre Mítico Pontiagudo -->
-              <path d="M18 2l-3.5 5" />
-              <!-- Cabeça, Orelha e Face -->
-              <path d="M12.5 6.5l.5-2.5 1.5 2.5" />
-              <path d="M14.5 7c-1-1.5-3.5-1.5-4.5 0-1 1.5-3.5 1-4.5 3s1 4 2.5 4.5l-1 4h3.5l1.5-3 2 1c2.5 0 3-1.5 3-3.5s-1-2.5-2.5-3.5z" />
-              <!-- Crina e Detalhes Mágicos -->
-              <path d="M13.5 10c.8 1 2 1 2.5 0" />
-              <path d="M12.5 13.5c1 1 2.5.5 2.5.5" />
-              <path d="M11.5 16.5c.8.5 2 0 2 0" />
-              <!-- Olho do Unicórnio -->
-              <circle cx="11.5" cy="9.5" r="0.5" fill="currentColor"/>
+              <!-- O Chifre Mágico -->
+              <path d="M19 3l-4 4" />
+              <!-- Silhueta da Orelha -->
+              <path d="M13 7l-1.5-3.5L10 7" />
+              <!-- Cabeça e Pescoço Tridimensionais -->
+              <path d="M14 8.5C14 6 11 6 9.5 7.5S5 9 5 11.5c0 1.5 1.5 2 2.5 3L6 20h4.5l1.5-3.5 2 1c2 0 3-1.5 3-4s-1-3-3-5z" />
+              <!-- Detalhes Estéticos da Crina -->
+              <path d="M12.5 11.5c1 0.8 2.5 0.3 2.5 0.3" />
+              <path d="M11.5 14c0.8 0.5 2 0 2 0" />
+              <!-- Olho Minimalista -->
+              <circle cx="10" cy="10" r="0.6" fill="currentColor" stroke="none" />
             </svg>
           `;
         } else {
@@ -579,7 +579,7 @@
         return;
       }
       if (e.key === 'ArrowLeft') prevSlide();
-      if (e.key === 'ArrowRight') updateSlide(); // Garante o avanço limpo
+      if (e.key === 'ArrowRight') nextSlide();
     });
 
     // Suporte Touch (Swipe em telemóvel)
