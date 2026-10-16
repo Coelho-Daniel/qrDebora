@@ -4,79 +4,79 @@ const personalities = [
     id: 1,
     title: "Casual do dia",
     icon: "fa-regular fa-sun",
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&auto=format&fit=crop&q=80",
-    desc: "Perfeito para uma caminhada descontraída pelo centro histórico ou ir tomar um café."
+    image: "foto1.jpeg",
+    /*desc: "Perfeito para uma caminhada descontraída pelo centro histórico ou ir tomar um café."*/
   },
   {
     id: 2,
     title: "Saída à noite",
     icon: "fa-solid fa-moon",
-    image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&auto=format&fit=crop&q=80",
-    desc: "Quem disse que o casaco não vai bem com vestido preto e as luzes da cidade?"
+    image: "foto2.jpeg",
+    /*desc: "Quem disse que o casaco não vai bem com vestido preto e as luzes da cidade?"*/
   },
   {
     id: 3,
     title: "Aventureira",
     icon: "fa-solid fa-mountain",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&auto=format&fit=crop&q=80",
-    desc: "Gorrinho quente, montanha no horizonte e vontade de subir até ao cume."
+    image: "foto3.jpeg",
+    //desc: "Gorrinho quente, montanha no horizonte e vontade de subir até ao cume."
   },
   {
     id: 4,
     title: "Chique",
     icon: "fa-solid fa-wine-glass",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80",
-    desc: "Echarpe aconchegante, óculos escuros e glamour descontraído."
+    image: "foto4.jpeg",
+    //desc: "Echarpe aconchegante, óculos escuros e glamour descontraído."
   },
   {
     id: 5,
     title: "Conforto em casa",
     icon: "fa-solid fa-mug-hot",
-    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=800&auto=format&fit=crop&q=80",
-    desc: "Uma caneca bem quente nas mãos e o melhor abraço do mundo."
+    image: "foto5.jpeg",
+    //desc: "Uma caneca bem quente nas mãos e o melhor abraço do mundo."
   },
   {
     id: 6,
     title: "Praia (com estilo)",
     icon: "fa-solid fa-water",
-    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800&auto=format&fit=crop&q=80",
-    desc: "O mar tem outra magia no outono e inverno quando estás bem aconchegada."
+    image: "foto6.jpeg",
+    //desc: "O mar tem outra magia no outono e inverno quando estás bem aconchegada."
   },
   {
     id: 7,
     title: "Treino? Também!",
     icon: "fa-solid fa-dumbbell",
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&auto=format&fit=crop&q=80",
-    desc: "Com auscultadores e pronta para queimar calorias logo pela manhã."
+    image: "foto7.jpeg",
+    //desc: "Com auscultadores e pronta para queimar calorias logo pela manhã."
   },
   {
     id: 8,
     title: "Turista profissional",
     icon: "fa-solid fa-camera",
-    image: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=800&auto=format&fit=crop&q=80",
-    desc: "Porque cada cidade merece ser explorada com estilo, curiosidade e passos sem fim."
+    image: "foto8.jpeg",
+    //desc: "Porque cada cidade merece ser explorada com estilo, curiosidade e passos sem fim."
   },
   {
     id: 9,
     title: "Happy hour",
     icon: "fa-solid fa-martini-glass-citrus",
-    image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&auto=format&fit=crop&q=80",
-    desc: "Cocktails, amigos e boa conversa ao final da tarde."
+    image: "foto9.jpeg",
+    //desc: "Cocktails, amigos e boa conversa ao final da tarde."
   },
   {
     id: 10,
     title: "Leitura & casaco",
     icon: "fa-solid fa-book-open",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&auto=format&fit=crop&q=80",
-    desc: "Mergulhar nas páginas do livro favorito no jardim ou na esplanada."
+    image: "foto10.jpeg",
+    //desc: "Mergulhar nas páginas do livro favorito no jardim ou na esplanada."
   },
   {
     id: 11,
     title: "Amiga dos patudos",
     icon: "fa-solid fa-paw",
-    image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=800&auto=format&fit=crop&q=80",
-    desc: "Passear o cão nunca foi tão fofo e quente."
-  },
+    image: "foto11.jpeg",
+    //desc: "Passear o cão nunca foi tão fofo e quente."
+  }/*,
   {
     id: 12,
     title: "Modo caos",
@@ -167,7 +167,7 @@ const personalities = [
     icon: "fa-solid fa-star",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80",
     desc: "Quando o casaco é apenas um detalhe do teu brilho próprio!"
-  }
+  }*/
 ];
 
 let currentModalIndex = 0;
