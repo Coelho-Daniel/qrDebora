@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Um casaco. 24 personalidades.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="title-wrap">
+        <i class="fa-solid fa-gift gift-icon"></i>
+        <div>
+          <h1>Um casaco. 24 personalidades.</h1>
+          <p class="subtitle">Uma prenda, muitos looks e zero desculpas para não o vestir! ♡</p>
+        </div>
+      </div>
+      <div class="badge-quote">
+        <span>O mesmo casaco...<br>mas sempre uma<br><strong>nova aventura! ♡</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="gallery-container">
+    <div class="cards-grid" id="galleryGrid">
+      <!-- Gerado via JavaScript -->
+    </div>
+  </main>
+
+  <footer class="features-bar">
+    <div class="feature-item">
+      <i class="fa-solid fa-gift"></i>
+      <div>
+        <h4>Uma prenda especial</h4>
+        <p>Porque as melhores prendas são as que se usam.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <i class="fa-solid fa-mobile-screen"></i>
+      <div>
+        <h4>100% responsivo</h4>
+        <p>Funciona perfeitamente em telemóveis, tablets e computadores.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      <div>
+        <h4>Clica para ver em grande</h4>
+        <p>Mais detalhes, mais sorrisos!</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <i class="fa-regular fa-heart"></i>
+      <div>
+        <h4>O mesmo casaco, infinitas histórias</h4>
+        <p>E esta é só uma galeria. O resto? Depende de ti!</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal / Lightbox Interativo -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="modal-image-col">
+        <img id="modalImg" src="" alt="Foto expandida">
+      </div>
+
+      <div class="modal-info-col">
+        <div class="modal-header-info">
+          <div class="modal-title-row">
+            <i id="modalIcon" class="fa-solid fa-camera"></i>
+            <h2 id="modalTitle">Turista profissional</h2>
+          </div>
+          <p id="modalDesc" class="modal-desc">Porque cada cidade merece ser explorada com estilo.</p>
+        </div>
+
+        <div class="modal-footer-nav">
+          <div class="counter-wrap">
+            <span id="currentIndex">1</span> / <span id="totalItems">24</span>
+          </div>
+          <div class="nav-buttons">
+            <button class="nav-circle-btn" id="prevBtn" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="nav-circle-btn" id="nextBtn" aria-label="Seguinte"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

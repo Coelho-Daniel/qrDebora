@@ -1,13 +1,9 @@
-# Galeria: Um casaco. 24 personalidades.
+# Galeria: Um casaco. 24 personalidades (Versão Limpa & Dark)
 
-Este projeto recria exatamente o design da prenda/galeria interativa.
+Versão simplificada sem botões de categorias / filtros.
+Exibe diretamente a grelha com os 24 looks sobre fundo #2b2b2b.
 
 ### Ficheiros incluídos:
-- `index.html`: Estrutura HTML limpa e semântica.
-- `style.css`: Estilos modernos com fonte handwriting (Caveat) e grelha responsiva (CSS Grid).
-- `script.js`: Toda a lógica interativa (filtragem por categorias, pop-up modal/lightbox, navegação por setas e teclado).
-
-### Como usar:
-1. Extraia o ficheiro ZIP.
-2. Abra o ficheiro `index.html` em qualquer navegador (Chrome, Safari, Edge, Firefox).
-3. Para colocar as tuas próprias fotos, basta substituir as URLs no ficheiro `script.js` (ou colocar imagens numa pasta local como `fotos/1.jpg` e alterar os caminhos).
+- `index.html`: Cabeçalho, grelha direta e modal popup.
+- `style.css`: Visual limpo com tema escuro `#2b2b2b` e tipografia manuscrita.
+- `script.js`: Renderização direta dos 24 cartões e controlo do lightbox.
