@@ -1,9 +1,16 @@
-# Galeria: Um casaco. 24 personalidades (Versão Limpa & Dark)
+# Apresentação em Slide: Um Colete. 10 Personalidades (Ordem Atualizada)
 
-Versão simplificada sem botões de categorias / filtros.
-Exibe diretamente a grelha com os 24 looks sobre fundo #2b2b2b.
+Ordem exata configurada de acordo com as fotos fornecidas:
+1. Look Verão com Calções
+2. Clássica com Jeans
+3. Look Saia Coordenada
+4. Modo Cores Vivas & Festival
+5. Noite Confortável de Pijama
+6. Estilo Inverno & Chapéu Étnico
+7. Cowboy Chic & Quadrados
+8. Modo Estrela de Hip-Hop / Diva
+9. Gala Elegante com Colete
+10. Gamer Girl (Valorant Style)
 
-### Ficheiros incluídos:
-- `index.html`: Cabeçalho, grelha direta e modal popup.
-- `style.css`: Visual limpo com tema escuro `#2b2b2b` e tipografia manuscrita.
-- `script.js`: Renderização direta dos 24 cartões e controlo do lightbox.
+### Como Usar:
+Basta extrair o ZIP e abrir o `index.html` em qualquer navegador.

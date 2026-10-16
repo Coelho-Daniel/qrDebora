@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Um colete. 10 personalidades.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #2b2b2b;
+      color: #f1ede6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .header {
+      padding: 24px 20px 10px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .title-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .gift-icon {
+      font-size: 2.2rem;
+      color: #e5b980;
+    }
+
+    .title-area h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .title-area p {
+      font-family: 'Caveat', cursive;
+      font-size: 1.4rem;
+      color: #cfcac0;
+    }
+
+    .badge-quote {
+      font-family: 'Caveat', cursive;
+      font-size: 1.25rem;
+      color: #d8d3c8;
+      transform: rotate(-2deg);
+      border-left: 2px dashed #666;
+      padding-left: 12px;
+      text-align: right;
+    }
+
+    .badge-quote strong {
+      color: #f6d198;
+    }
+
+    /* Slider Container */
+    .slider-main-container {
+      max-width: 1000px;
+      margin: 10px auto 20px;
+      padding: 0 16px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .slide-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 580px;
+      background: #343434;
+      border: 1px solid #444;
+      border-radius: 20px;
+      padding: 18px 18px 22px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Foto em destaque */
+    .photo-frame {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 2 / 3;
+      border-radius: 14px;
+      overflow: hidden;
+      background-color: #1e1e1e;
+      position: relative;
+      cursor: zoom-in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background-color: #f8f6f0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      display: block;
+    }
+
+    .zoom-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Info e Legenda do Look */
+    .slide-info {
+      width: 100%;
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 6px;
+    }
+
+    .look-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .look-icon {
+      font-size: 1.4rem;
+      color: #e5b980;
+    }
+
+    .look-title {
+      font-family: 'Caveat', cursive;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .counter-pill {
+      background: #444;
+      border: 1px solid #555;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #e0dcd5;
+      letter-spacing: 1px;
+    }
+
+    /* Controlos de Navegação Laterais */
+    .nav-arrow {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(43, 43, 43, 0.85);
+      border: 1px solid #5a5a5a;
+      backdrop-filter: blur(4px);
+      color: #ffffff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+
+    .nav-arrow:hover {
+      background: #e5b980;
+      color: #1a1a1a;
+      border-color: #e5b980;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .nav-arrow.prev {
+      left: -24px;
+    }
+
+    .nav-arrow.next {
+      right: -24px;
+    }
+
+    @media (max-width: 650px) {
+      .nav-arrow.prev { left: 8px; }
+      .nav-arrow.next { right: 8px; }
+      .title-area h1 { font-size: 2.2rem; }
+      .title-area p { font-size: 1.2rem; }
+      .badge-quote { display: none; }
+    }
+
+    /* Miniaturas / Thumbnails */
+    .thumbnails-bar {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      overflow-x: auto;
+      max-width: 100%;
+      padding: 8px 6px;
+      scrollbar-width: thin;
+      scrollbar-color: #555 transparent;
+    }
+
+    .thumb {
+      width: 58px;
+      height: 76px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid #444;
+      opacity: 0.55;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+      background: #1e1e1e;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumb:hover {
+      opacity: 0.9;
+      transform: translateY(-3px);
+    }
+
+    .thumb.active {
+      opacity: 1;
+      border-color: #e5b980;
+      box-shadow: 0 0 10px rgba(229, 185, 128, 0.4);
+      transform: translateY(-3px);
+    }
+
+    /* Modal Ecrã Inteiro */
+    .fullscreen-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      cursor: zoom-out;
+      padding: 16px;
+    }
+
+    .fullscreen-modal.active {
+      display: flex;
+    }
+
+    .fullscreen-modal img {
+      max-width: 96vw;
+      max-height: 94vh;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    }
+
+    .close-fs-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #444;
+      border: 1px solid #666;
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-fs-btn:hover {
+      background: #e5b980;
+      color: #1a1a1a;
+    }
+
+    /* Footer */
+    .footer-bar {
+      background: #232323;
+      border-top: 1px solid #3c3c3c;
+      padding: 16px 20px;
+      text-align: center;
+      color: #8f8a80;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-content">
+      <div class="title-area">
+        <i class="fa-solid fa-gift gift-icon"></i>
+        <div>
+          <h1>Um colete. 10 personalidades.</h1>
+          <p>O mesmo colete, infinitos estilos e muita diversão! ♡</p>
+        </div>
+      </div>
+      <div class="badge-quote">
+        <span>O mesmo look base...<br>mas sempre uma<br><strong>nova versão! ✨</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="slider-main-container">
+    <div class="slide-wrapper" id="slideArea">
+      <!-- Botões de navegação lateral -->
+      <button class="nav-arrow prev" id="prevBtn" title="Foto anterior (Seta esquerda)">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="nav-arrow next" id="nextBtn" title="Próxima foto (Seta direita)">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <!-- Foto em grande destaque -->
+      <div class="photo-frame" id="photoFrame" title="Clica para ver em ecrã inteiro">
+        <img id="mainImage" src="fotos/foto1.jpg" alt="Look 1">
+        <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Ecrã inteiro</span>
+      </div>
+
+      <!-- Informação do Look -->
+      <div class="slide-info">
+        <div class="look-title-wrap">
+          <i id="lookIcon" class="fa-solid fa-sun look-icon"></i>
+          <h2 id="lookTitle" class="look-title">Look Verão com Calções</h2>
+        </div>
+        <div class="counter-pill">
+          <span id="currentNum">1</span> / <span id="totalNum">10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Miniaturas na parte inferior -->
+    <div class="thumbnails-bar" id="thumbsBar">
+      <!-- Gerado dinamicamente -->
+    </div>
+  </main>
+
+  <!-- Modal Ecrã Inteiro -->
+  <div class="fullscreen-modal" id="fullscreenModal" title="Clica em qualquer lugar para fechar">
+    <button class="close-fs-btn" id="closeFsBtn">&times;</button>
+    <img id="fullscreenImg" src="" alt="Ecrã inteiro">
+  </div>
+
+  <footer class="footer-bar">
+    <p>Usa as setas do teclado (⬅️ / ➡️) ou clica nas setas laterais para navegar. Toca na foto para ver em grande!</p>
+  </footer>
+
+  <script>
+    // Sequência exata de looks de acordo com as fotos enviadas:
+    const looks = [
+      {
+        src: "fotos/foto1.jpg",
+        title: "Look Verão com Calções",
+        icon: "fa-solid fa-sun"
+      },
+      {
+        src: "fotos/foto2.jpg",
+        title: "Clássica com Jeans",
+        icon: "fa-solid fa-shirt"
+      },
+      {
+        src: "fotos/foto3.jpg",
+        title: "Look Saia Coordenada",
+        icon: "fa-solid fa-person-dress"
+      },
+      {
+        src: "fotos/foto4.jpg",
+        title: "Modo Cores Vivas & Festival",
+        icon: "fa-solid fa-rainbow"
+      },
+      {
+        src: "fotos/foto5.jpg",
+        title: "Noite Confortável de Pijama",
+        icon: "fa-solid fa-moon"
+      },
+      {
+        src: "fotos/foto6.jpg",
+        title: "Estilo Inverno & Chapéu Étnico",
+        icon: "fa-solid fa-hat-cowboy-side"
+      },
+      {
+        src: "fotos/foto7.jpg",
+        title: "Cowboy Chic & Quadrados",
+        icon: "fa-solid fa-horse"
+      },
+      {
+        src: "fotos/foto8.jpg",
+        title: "Modo Estrela de Hip-Hop / Diva",
+        icon: "fa-solid fa-glasses"
+      },
+      {
+        src: "fotos/foto9.jpg",
+        title: "Gala Elegante com Colete",
+        icon: "fa-solid fa-champagne-glasses"
+      },
+      {
+        src: "fotos/foto10.jpg",
+        title: "Gamer Girl (Valorant Style)",
+        icon: "fa-solid fa-gamepad"
+      }
+    ];
+
+    let currentIndex = 0;
+
+    const mainImage = document.getElementById('mainImage');
+    const lookTitle = document.getElementById('lookTitle');
+    const lookIcon = document.getElementById('lookIcon');
+    const currentNum = document.getElementById('currentNum');
+    const totalNum = document.getElementById('totalNum');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const thumbsBar = document.getElementById('thumbsBar');
+    const photoFrame = document.getElementById('photoFrame');
+    const fullscreenModal = document.getElementById('fullscreenModal');
+    const fullscreenImg = document.getElementById('fullscreenImg');
+    const closeFsBtn = document.getElementById('closeFsBtn');
+
+    totalNum.textContent = looks.length;
+
+    // Criar Miniaturas
+    function setupThumbnails() {
+      thumbsBar.innerHTML = '';
+      looks.forEach((look, index) => {
+        const thumb = document.createElement('div');
+        thumb.className = `thumb ${index === 0 ? 'active' : ''}`;
+        thumb.innerHTML = `<img src="${look.src}" alt="${look.title}">`;
+        thumb.onclick = () => goToSlide(index);
+        thumbsBar.appendChild(thumb);
+      });
+    }
+
+    // Atualizar Slide
+    function updateSlide() {
+      const look = looks[currentIndex];
+      
+      mainImage.style.opacity = '0';
+      mainImage.style.transform = 'scale(0.98)';
+      
+      setTimeout(() => {
+        mainImage.src = look.src;
+        lookTitle.textContent = look.title;
+        lookIcon.className = `${look.icon} look-icon`;
+        currentNum.textContent = currentIndex + 1;
+        
+        mainImage.style.opacity = '1';
+        mainImage.style.transform = 'scale(1)';
+
+        // Atualizar Miniaturas ativas
+        const thumbs = thumbsBar.querySelectorAll('.thumb');
+        thumbs.forEach((t, i) => {
+          t.classList.toggle('active', i === currentIndex);
+          if (i === currentIndex) {
+            t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+        });
+      }, 150);
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlide();
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex < looks.length - 1) ? currentIndex + 1 : 0;
+      updateSlide();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : looks.length - 1;
+      updateSlide();
+    }
+
+    // Eventos
+    prevBtn.onclick = (e) => { e.stopPropagation(); prevSlide(); };
+    nextBtn.onclick = (e) => { e.stopPropagation(); nextSlide(); };
+
+    // Ecrã inteiro ao clicar na imagem
+    photoFrame.onclick = () => {
+      fullscreenImg.src = looks[currentIndex].src;
+      fullscreenModal.classList.add('active');
+    };
+
+    fullscreenModal.onclick = () => {
+      fullscreenModal.classList.remove('active');
+    };
+
+    closeFsBtn.onclick = (e) => {
+      e.stopPropagation();
+      fullscreenModal.classList.remove('active');
+    };
+
+    // Suporte por Teclado
+    document.addEventListener('keydown', (e) => {
+      if (fullscreenModal.classList.contains('active')) {
+        if (e.key === 'Escape') fullscreenModal.classList.remove('active');
+        if (e.key === 'ArrowLeft') { prevSlide(); fullscreenImg.src = looks[currentIndex].src; }
+        if (e.key === 'ArrowRight') { nextSlide(); fullscreenImg.src = looks[currentIndex].src; }
+        return;
+      }
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'ArrowRight') nextSlide();
+    });
+
+    // Suporte Touch (Swipe em telemóvel)
+    let startX = 0;
+    const slideArea = document.getElementById('slideArea');
+    slideArea.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    slideArea.addEventListener('touchend', (e) => {
+      let endX = e.changedTouches[0].clientX;
+      if (startX - endX > 45) nextSlide();
+      else if (endX - startX > 45) prevSlide();
+    }, { passive: true });
+
+    // Iniciar
+    setupThumbnails();
+    updateSlide();
+  </script>
+</body>
+</html>
