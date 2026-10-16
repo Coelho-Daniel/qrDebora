@@ -394,7 +394,25 @@
   <footer class="footer-bar">
     <p>Usa as setas do teclado (⬅️ / ➡️) ou clica nas setas laterais para navegar. Toca na foto para ver em grande!</p>
   </footer>
-
+<div class="icon-container">
+  <script>
+    // Exemplo lógico de como renderizar no seu loop:
+    looks.forEach(look => {
+      if (look.icon === "custom-unicorn") {
+        // Insere o SVG corrigido (com o link xmlns correto para w3.org)
+        document.write(`
+          <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-unicorn">
+            <path d="M18 2l-2 4h-4l1 3-4 2 2 2-3 5h5l2-3 2 1 3-6-1-3z" />
+            <path d="M13 6l2-4" />
+          </svg>
+        `);
+      } else {
+        // Insere a tag padrão do Font Awesome
+        document.write(`<i class="${look.icon}"></i>`);
+      }
+    });
+  </script>
+</div>
   <script>
     // Sequência exata de looks de acordo com as fotos enviadas:
     const looks = [
@@ -451,11 +469,7 @@
       {
         src: "foto11.jpg",
         title: "Princesa dos Unicórnios",
-        <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-unicorn">
-  <!-- Desenho minimalista da cabeça de um unicórnio (Baseado no Lucide Lab) -->
-  <path d="M18 2l-2 4h-4l1 3-4 2 2 2-3 5h5l2-3 2 1 3-6-1-3z" />
-  <path d="M13 6l2-4" />
-</svg>
+        icon: "custom-unicorn"
       }
     ];
 
