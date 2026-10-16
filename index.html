@@ -395,22 +395,7 @@
     <p>Usa as setas do teclado (⬅️ / ➡️) ou clica nas setas laterais para navegar. Toca na foto para ver em grande!</p>
   </footer>
 
-  <script>
-    // Exemplo lógico de como renderizar no seu loop:
-    looks.forEach(look => {
-      if (look.icon === "custom-unicorn") {
-        // Insere o SVG corrigido (com o link xmlns correto para w3.org)
-        document.write(`
-          <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-unicorn">
-            <path d="M18 2l-2 4h-4l1 3-4 2 2 2-3 5h5l2-3 2 1 3-6-1-3z" />
-            <path d="M13 6l2-4" />
-          </svg>
-        `);
-      } else {
-        // Insere a tag padrão do Font Awesome
-        document.write(`<i class="${look.icon}"></i>`);
-      }
-    });
+ <script>
     // Sequência exata de looks de acordo com as fotos enviadas:
     const looks = [
       {
@@ -466,7 +451,7 @@
       {
         src: "foto11.jpg",
         title: "Princesa dos Unicórnios",
-        icon: "custom-unicorn"
+        icon: "custom-unicorn" // Mantemos o identificador personalizado
       }
     ];
 
@@ -474,7 +459,7 @@
 
     const mainImage = document.getElementById('mainImage');
     const lookTitle = document.getElementById('lookTitle');
-    const lookIcon = document.getElementById('lookIcon');
+    const lookIcon = document.getElementById('lookIcon'); // Elemento onde o ícone é renderizado
     const currentNum = document.getElementById('currentNum');
     const totalNum = document.getElementById('totalNum');
     const prevBtn = document.getElementById('prevBtn');
@@ -493,13 +478,13 @@
       looks.forEach((look, index) => {
         const thumb = document.createElement('div');
         thumb.className = `thumb ${index === 0 ? 'active' : ''}`;
-        thumb.innerHTML = `<img src="${look.src}" alt="${look.title}">`;
+        thumb.innerHTML = `<img src="${look.src}" alt="${look.title || ''}">`;
         thumb.onclick = () => goToSlide(index);
         thumbsBar.appendChild(thumb);
       });
     }
 
-    // Atualizar Slide
+    // Atualizar Slide (Lógica Corrigida para Ícones Mistos)
     function updateSlide() {
       const look = looks[currentIndex];
       
@@ -508,9 +493,24 @@
       
       setTimeout(() => {
         mainImage.src = look.src;
-        lookTitle.textContent = look.title;
-        lookIcon.className = `${look.icon} look-icon`;
+        lookTitle.textContent = look.title || '';
         currentNum.textContent = currentIndex + 1;
+
+        // VERIFICAÇÃO DO ÍCONE: Trata o SVG personalizado vs Font Awesome
+        if (look.icon === "custom-unicorn") {
+          // Injeta diretamente o SVG dentro do container do ícone
+          lookIcon.className = "look-icon"; // Remove classes antigas do Font Awesome
+          lookIcon.innerHTML = `
+            <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;">
+              <path d="M18 2l-2 4h-4l1 3-4 2 2 2-3 5h5l2-3 2 1 3-6-1-3z" />
+              <path d="M13 6l2-4" />
+            </svg>
+          `;
+        } else {
+          // Limpa qualquer SVG residual e aplica a classe normal do Font Awesome
+          lookIcon.innerHTML = '';
+          lookIcon.className = `${look.icon} look-icon`;
+        }
         
         mainImage.style.opacity = '1';
         mainImage.style.transform = 'scale(1)';
@@ -575,19 +575,21 @@
     // Suporte Touch (Swipe em telemóvel)
     let startX = 0;
     const slideArea = document.getElementById('slideArea');
-    slideArea.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-    }, { passive: true });
+    if(slideArea) {
+      slideArea.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
 
-    slideArea.addEventListener('touchend', (e) => {
-      let endX = e.changedTouches[0].clientX;
-      if (startX - endX > 45) nextSlide();
-      else if (endX - startX > 45) prevSlide();
-    }, { passive: true });
+      slideArea.addEventListener('touchend', (e) => {
+        let endX = e.changedTouches[0].clientX;
+        if (startX - endX > 45) nextSlide();
+        else if (endX - startX > 45) prevSlide();
+      }, { passive: true });
+    }
 
     // Iniciar
     setupThumbnails();
     updateSlide();
-  </script>
+</script>
 </body>
 </html>
